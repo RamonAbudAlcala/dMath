@@ -1,7 +1,7 @@
 __version__ = '0.1' # 2021/07/21
 __author__ = 'Ramon Abud Alcala'
 
-class DivAlg:
+#class DivAlg:
 
     def __init__(self, num, den):
         self.num = num
@@ -16,7 +16,7 @@ class DivAlg:
         return self.num % self.den
 
 
-class EuclidAlg:
+#class EuclidAlg:
 
     def __init__(self, num, den):
         self.num = num
@@ -61,7 +61,7 @@ class EuclidAlg:
         return extended_euclid_table
 
 
-class Primes:
+#class Primes:
 
     def __init__(self, num):
         self.num = num
@@ -108,7 +108,7 @@ class Primes:
         return expansion
 
 
-class EulerFermatAlg:
+#class EulerFermatAlg:
 
     def __init__(self, base, power, modulo):
         self.base = base
@@ -126,3 +126,21 @@ class EulerFermatAlg:
             powers.append(a0)
 
         return powers
+
+
+#class DecimalConversion:
+    
+    # def __init__(self):
+        
+    def dec_to_base(n,b):
+        q = n
+        table = [(q,"")]
+        while (q!=0):
+            q = DivAlg(n,b).quotient
+            r = DivAlg(n,b).remainder
+            table.append((q,r))
+            n = q
+        answer = ""
+        for row in reversed(table[1:]):
+            answer += f"{row[1]}"
+        return (table,answer)
